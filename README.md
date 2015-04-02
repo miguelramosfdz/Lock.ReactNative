@@ -22,7 +22,7 @@ pod "LockReact"
 
 ## Author
 
-Hernan Zalazar, hernanzalazar@gmail.com
+Auth0
 
 ## License
 
