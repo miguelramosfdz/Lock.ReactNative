@@ -80,6 +80,9 @@ And you'll see our native login screen
 ```js
 Lock.show({
   connections: ['touchid'],
+  authParams: {
+    connection: 'Username-Password-Authentication',  
+  }
 }, (err, profile, token) => {
   console.log('Logged in!');
 });
