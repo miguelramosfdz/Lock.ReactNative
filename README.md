@@ -7,7 +7,7 @@
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
-**LockReact** is a wrapper around [Lock](https://github.com/auth0/Lock.iOS-OSX) so it easier to use it from React Native.
+**LockReact** is a wrapper around [Lock](https://github.com/auth0/Lock.iOS-OSX) so it easier to use with React Native.
 
 > LockReact API is in Beta and might be subject to changes due to improvements in either Lock or React Native
 
