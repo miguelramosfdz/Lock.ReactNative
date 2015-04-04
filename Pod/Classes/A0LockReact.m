@@ -59,7 +59,7 @@
 
 - (UIViewController *)buildTouchIDLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
     A0TouchIDLockViewController *lock = [[A0TouchIDLockViewController alloc] init];
-    lock.closable = options[@"closable"];
+    lock.closable = [options[@"closable"] boolValue];
     lock.authenticationParameters = [self authenticationParametersFromOptions:options];
     lock.onAuthenticationBlock = authenticationBlock;
     lock.onUserDismissBlock = dismissBlock;
@@ -68,7 +68,7 @@
 
 - (UIViewController *)buildSMSLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
     A0SMSLockViewController *lock = [[A0SMSLockViewController alloc] init];
-    lock.closable = options[@"closable"];
+    lock.closable = [options[@"closable"] boolValue];
     lock.onAuthenticationBlock = authenticationBlock;
     lock.onUserDismissBlock = dismissBlock;
     return [[UINavigationController alloc] initWithRootViewController:lock];
@@ -76,11 +76,11 @@
 
 - (UIViewController *)buildLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
     A0LockViewController *lock = [[A0LockViewController alloc] init];
-    lock.closable = options[@"closable"];
-    lock.usesEmail = options[@"usesEmail"];
-    lock.useWebView = options[@"useWebView"];
-    lock.loginAfterSignUp = options[@"loginAfterSignUp"];
-    lock.defaultADUsernameFromEmailPrefix = options[@"defaultADUsernameFromEmailPrefix"];
+    lock.closable = [options[@"closable"] boolValue];
+    lock.usesEmail = [options[@"usesEmail"] boolValue];
+    lock.useWebView = [options[@"useWebView"] boolValue];
+    lock.loginAfterSignUp = [options[@"loginAfterSignUp"] boolValue];
+    lock.defaultADUsernameFromEmailPrefix = [options[@"defaultADUsernameFromEmailPrefix"] boolValue];
     lock.connections = options[@"connections"];
     lock.defaultDatabaseConnectionName = options[@"defaultDatabaseConnectionName"];
     lock.authenticationParameters = [self authenticationParametersFromOptions:options];
