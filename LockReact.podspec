@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "LockReact"
   s.version          = "0.1.0"
-  s.summary          = "A wrapper of Lock to make it easy to use it with React Native."
+  s.summary          = "A wrapper of Lock to make it easy to use with React Native."
   s.description      = <<-DESC
                         [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
                         Auth0 is a SaaS that helps you with Authentication and Authorization. 
