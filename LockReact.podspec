@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "LockReact"
   s.version          = "0.1.0"
-  s.summary          = "A wrapper for React Native of Lock."
+  s.summary          = "A wrapper of Lock to make it easy to use it with React Native."
   s.description      = <<-DESC
                         [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
                         Auth0 is a SaaS that helps you with Authentication and Authorization. 
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
                        DESC
   s.homepage         = "https://github.com/auth0/Lock.ReactNative"
   s.license          = 'MIT'
-  s.author           = { "Auth0" => "support@auth0.com", "Hernan Zalazar" => "hernanzalazar@gmail.com" }
+  s.author           = { "Auth0" => "support@auth0.com", "Hernan Zalazar" => "hernan@auth0.com" }
   s.source           = { :git => "https://github.com/auth0/Lock.ReactNative.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/auth0'
 

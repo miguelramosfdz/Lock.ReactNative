@@ -65,34 +65,29 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock/Core (1.10.2):
+  - Lock/Core (1.10.3):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0.0-rc)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
-    - ObjectiveSugar (~> 1.1)
-  - Lock/SMS (1.10.2):
+  - Lock/SMS (1.10.3):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
-    - ObjectiveSugar (~> 1.1)
-  - Lock/TouchID (1.10.2):
+  - Lock/TouchID (1.10.3):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
-    - ObjectiveSugar (~> 1.1)
     - SimpleKeychain (~> 0.2)
     - TouchIDAuth (~> 0.1)
-  - Lock/UI (1.10.2):
+  - Lock/UI (1.10.3):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/Core
-    - ObjectiveSugar (~> 1.1)
   - LockReact (0.1.0):
     - Lock/SMS
     - Lock/TouchID
     - Lock/UI (~> 1.10)
-  - ObjectiveSugar (1.1.0)
   - SimpleKeychain (0.3.0)
   - Specta (0.4.0)
   - TouchIDAuth (0.1.1):
@@ -114,9 +109,8 @@ SPEC CHECKSUMS:
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: a5becb1620b25ab6df1ee82f1935865c28d54c27
-  LockReact: 9044c0a85e4cbc396856422bf262bd8bfcaebbc9
-  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
+  Lock: 6c09c15560eafef14de9f824f64f2ea12b8d9dc4
+  LockReact: 72b3da2a96321bac9a7b105cafd517e1296f131f
   SimpleKeychain: 8de48eb1de10c6403911a6be52e127e5b5d31404
   Specta: a353759f073ffcc0a365b782fe4aaeac064c03c6
   TouchIDAuth: f63596baf1c23d85211ab7a3b4bea794d73f3e36
