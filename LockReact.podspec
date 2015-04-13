@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "LockReact"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
   s.summary          = "A wrapper of Lock to make it easy to use with React Native."
   s.description      = <<-DESC
                         [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
