@@ -21,7 +21,7 @@ LockReact is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "LockReact", '~> 0.1'
+pod "LockReact", '~> 0.2'
 ```
 
 Then in your project's `Info.plist` file add the following entries:
@@ -80,8 +80,7 @@ And you'll see our native login screen
 ### TouchID
 
 ```js
-Lock.show({
-  connections: ['touchid'],
+Lock.showTouchID({
   authParams: {
     connection: 'Username-Password-Authentication',  
   }
@@ -95,6 +94,21 @@ And you'll see TouchID login screen
 [![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-TouchID-Screenshot.png)](https://auth0.com)
 
 > Because it uses a Database connection, the user can change it's password and authenticate using email/password whenever needed. For example when you change your device.
+
+### SMS
+
+```js
+Lock.showSMS({
+  apiToken: "API V2 TOKEN",
+}, (err, profile, token) => {
+  console.log('Logged in!');
+});
+```
+And you'll see SMS login screen
+
+[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Screenshot.png)](https://auth0.com)
+
+> You need generate a v2 API Token used to register the  phone number and send the login code with SMS. This token can be generated in  [Auth0 API v2 page](https://docs.auth0.com/apiv2), just select the scope `create:users` and copy the generated API Token.
 
 ## API
 
