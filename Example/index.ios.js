@@ -59,9 +59,8 @@ var LockReactApp = React.createClass({
     );
   },
   _onShowLock: function() {
-    Lock.show({
+    Lock.showTouchID({
       closable: true,
-      connections: ['touchid'],
       authParams: {
         connection: 'Username-Password-Authentication',
         scope: "openid email offline_access",

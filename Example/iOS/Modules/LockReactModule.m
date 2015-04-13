@@ -33,4 +33,20 @@
   });
 }
 
+- (void)showSMS:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback {
+  RCT_EXPORT(showSMS);
+  dispatch_async(dispatch_get_main_queue(), ^{
+    A0LockReact *lock = [[A0LockReact alloc] init];
+    [lock showSMSWithOptions:options callback:callback];
+  });
+}
+
+- (void)showTouchID:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback {
+  RCT_EXPORT(showTouchID);
+  dispatch_async(dispatch_get_main_queue(), ^{
+    A0LockReact *lock = [[A0LockReact alloc] init];
+    [lock showTouchIDWithOptions:options callback:callback];
+  });
+}
+
 @end

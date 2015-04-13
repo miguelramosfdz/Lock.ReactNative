@@ -57,6 +57,36 @@
     [controller presentViewController:lock animated:YES completion:nil];
 }
 
+- (void)showSMSWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback {
+    UIViewController *controller = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    A0AuthenticationBlock authenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+        NSDictionary *profileDict = [profile asDictionary];
+        NSDictionary *tokenDict = [token asDictionary];
+        callback(@[[NSNull null], profileDict, tokenDict]);
+        [controller dismissViewControllerAnimated:YES completion:nil];
+    };
+    void(^dismissBlock)() = ^{
+        callback(@[@"Lock was dismissed by the user", [NSNull null], [NSNull null]]);
+    };
+    UIViewController *lock = [self buildSMSLockWithOptions:options authenticationBlock:authenticationBlock dismissBlock:dismissBlock];
+    [controller presentViewController:lock animated:YES completion:nil];
+}
+
+- (void)showTouchIDWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback {
+    UIViewController *controller = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+    A0AuthenticationBlock authenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+        NSDictionary *profileDict = [profile asDictionary];
+        NSDictionary *tokenDict = [token asDictionary];
+        callback(@[[NSNull null], profileDict, tokenDict]);
+        [controller dismissViewControllerAnimated:YES completion:nil];
+    };
+    void(^dismissBlock)() = ^{
+        callback(@[@"Lock was dismissed by the user", [NSNull null], [NSNull null]]);
+    };
+    UIViewController *lock = [self buildTouchIDLockWithOptions:options authenticationBlock:authenticationBlock dismissBlock:dismissBlock];
+    [controller presentViewController:lock animated:YES completion:nil];
+}
+
 - (UIViewController *)buildTouchIDLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
     A0TouchIDLockViewController *lock = [[A0TouchIDLockViewController alloc] init];
     lock.closable = [options[@"closable"] boolValue];
@@ -68,6 +98,8 @@
 
 - (UIViewController *)buildSMSLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
     A0SMSLockViewController *lock = [[A0SMSLockViewController alloc] init];
+    NSString *token = options[@"apiToken"];
+    lock.auth0APIToken = ^() { return token; };
     lock.closable = [options[@"closable"] boolValue];
     lock.onAuthenticationBlock = authenticationBlock;
     lock.onUserDismissBlock = dismissBlock;
