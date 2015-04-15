@@ -123,6 +123,22 @@ Show Lock's authentication screen as a modal screen using the connections config
 
 The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
 
+####.showSMS(options, callback)
+Show Lock's SMS authentication screen as a modal screen. This is the list of valid options:
+
+* **closable** (`boolean`): If Lock screen can be dismissed
+* **authParams** (`object`): Object with the parameters to be sent to the Authentication API, e.g. `scope`.
+
+The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
+
+####.showTouchID(options, callback)
+Show Lock's TouchID authentication screen as a modal screen. This is the list of valid options:
+
+* **closable** (`boolean`): If Lock screen can be dismissed
+* **authParams** (`object`): Object with the parameters to be sent to the Authentication API, e.g. `scope`.
+
+The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
+
 ## Issue Reporting
 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
