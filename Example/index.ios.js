@@ -16,7 +16,7 @@ var {
 
 var HeaderView = require('./components/header');
 var TokenView = require('./components/token');
-var Lock = require('NativeModules').LockReactModule;
+var Lock = require('NativeModules').LockReact;
 
 var LockReactApp = React.createClass({
   getInitialState: function() {
