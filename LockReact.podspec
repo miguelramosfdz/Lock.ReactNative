@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.dependency 'Lock/UI', '~> 1.10'
+  s.dependency 'Lock/UI', '~> 1.12'
   s.dependency 'Lock/TouchID'
   s.dependency 'Lock/SMS'
 end
