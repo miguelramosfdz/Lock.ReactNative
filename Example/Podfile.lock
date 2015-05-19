@@ -1,25 +1,34 @@
 PODS:
-  - AFNetworking (2.5.2):
-    - AFNetworking/NSURLConnection (= 2.5.2)
-    - AFNetworking/NSURLSession (= 2.5.2)
-    - AFNetworking/Reachability (= 2.5.2)
-    - AFNetworking/Security (= 2.5.2)
-    - AFNetworking/Serialization (= 2.5.2)
-    - AFNetworking/UIKit (= 2.5.2)
-  - AFNetworking/NSURLConnection (2.5.2):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.2):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.2)
-  - AFNetworking/Security (2.5.2)
-  - AFNetworking/Serialization (2.5.2)
-  - AFNetworking/UIKit (2.5.2):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BDBOAuth1Manager (1.5.0):
+    - AFNetworking/NSURLConnection (~> 2.5.0)
+    - AFNetworking/NSURLSession (~> 2.5.0)
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
   - CocoaLumberjack (2.0.0):
     - CocoaLumberjack/Default (= 2.0.0)
     - CocoaLumberjack/Extensions (= 2.0.0)
@@ -28,6 +37,17 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
+  - FBSDKCoreKit (4.1.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.1.0)
+    - FBSDKCoreKit/no-arc (= 4.1.0)
+  - FBSDKCoreKit/arc (4.1.0):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.1.0):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.1.0):
+    - FBSDKCoreKit
   - ISO8601DateFormatter (0.7)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -64,22 +84,32 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock/Core (1.10.5):
+  - Lock-Facebook (2.0.1):
+    - CocoaLumberjack (~> 2.0)
+    - FBSDKCoreKit (~> 4.0)
+    - FBSDKLoginKit (~> 4.0)
+    - Lock/Core (~> 1.11)
+  - Lock-Twitter (1.0.1):
+    - BDBOAuth1Manager (~> 1.5.0)
+    - Lock/Core (~> 1.11)
+    - PSAlertView (~> 2.0)
+    - TWReverseAuth (~> 0.1.0)
+  - Lock/Core (1.12.0):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0.0-rc)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
-  - Lock/SMS (1.10.5):
+  - Lock/SMS (1.12.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
-  - Lock/TouchID (1.10.5):
+  - Lock/TouchID (1.12.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
     - SimpleKeychain (~> 0.2)
     - TouchIDAuth (~> 0.1)
-  - Lock/UI (1.10.5):
+  - Lock/UI (1.12.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/Core
@@ -87,12 +117,22 @@ PODS:
     - Lock/SMS
     - Lock/TouchID
     - Lock/UI (~> 1.10)
+  - LUKeychainAccess (1.2.4)
+  - NSData+Base64 (1.0.0)
+  - OAuthCore (0.0.1):
+    - NSData+Base64
+  - PSAlertView (2.0.3)
   - SimpleKeychain (0.3.0)
   - TouchIDAuth (0.1.1):
     - libextobjc (~> 0.4)
     - SimpleKeychain (~> 0.3)
+  - TWReverseAuth (0.1.1):
+    - LUKeychainAccess
+    - OAuthCore
 
 DEPENDENCIES:
+  - Lock-Facebook
+  - Lock-Twitter
   - LockReact (from `../`)
 
 EXTERNAL SOURCES:
@@ -100,13 +140,24 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  BDBOAuth1Manager: 2e28773b58f880fb36b5cd3efcf0b1fefbc78a99
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
+  FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: c181bbdf99cb06e08b1bd5350f960d84a2347f0e
+  Lock: ca0a339e418793d13842c4d901c7a5f8b698d87e
+  Lock-Facebook: 02c315b7d15d6fed20c7a2ea8a5e5e27c072483a
+  Lock-Twitter: 61168e95f6614535167621794cbada2d6606d4c5
   LockReact: 45251e9afc5f63419dbf48a9deae83c315237ea8
+  LUKeychainAccess: 6479edb12cf06e11ff3336f796959eedbc58f714
+  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
+  OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
+  PSAlertView: 16d35f5dba549418492cf68a750d4f0dca21f4a2
   SimpleKeychain: 8de48eb1de10c6403911a6be52e127e5b5d31404
   TouchIDAuth: f63596baf1c23d85211ab7a3b4bea794d73f3e36
+  TWReverseAuth: d2deef3521fa6bee32eabab67f114c2c4a53d4f5
 
-COCOAPODS: 0.36.4
+COCOAPODS: 0.37.1

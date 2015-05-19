@@ -24,19 +24,19 @@
 #import "A0LockReact.h"
 #import <Lock/A0IdentityProviderAuthenticator.h>
 
-#if __has_include("A0FacebookAuthenticator.h")
+#if __has_include(<Lock-Facebook/A0FacebookAuthenticator.h>)
 #define FACEBOOK_ENABLED 1
-#import <Lock/A0FacebookAuthenticator.h>
+#import <Lock-Facebook/A0FacebookAuthenticator.h>
 #endif
 
-#if __has_include("A0TwitterAuthenticator.h")
+#if __has_include(<Lock-Twitter/A0TwitterAuthenticator.h>)
 #define TWITTER_ENABLED 1
-#import <Lock/A0TwitterAuthenticator.h>
+#import <Lock-Twitter/A0TwitterAuthenticator.h>
 #endif
 
-#if __has_include("A0GooglePlusAuthenticator.h")
+#if __has_include(<Lock-GooglePlus/A0GooglePlusAuthenticator.h>)
 #define GOOGLE_PLUS_ENABLED 1
-#import <Lock/A0GooglePlusAuthenticator.h>
+#import <Lock-GooglePlus/A0GooglePlusAuthenticator.h>
 #endif
 
 @implementation LockReactModule

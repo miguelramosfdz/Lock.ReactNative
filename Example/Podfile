@@ -2,6 +2,7 @@ platform :ios, '8.0'
 
 target 'LockReact' do
   pod 'LockReact', :path => '../'
-  pod 'Lock/Facebook'
+  pod 'Lock-Facebook'
+  pod 'Lock-Twitter'
 end
 
