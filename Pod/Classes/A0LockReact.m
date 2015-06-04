@@ -39,9 +39,13 @@
     UIViewController *controller = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
     UIViewController *lock;
     A0AuthenticationBlock authenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-        NSDictionary *profileDict = [profile asDictionary];
-        NSDictionary *tokenDict = [token asDictionary];
-        callback(@[[NSNull null], profileDict, tokenDict]);
+        if (profile && token) {
+            NSDictionary *profileDict = [profile asDictionary];
+            NSDictionary *tokenDict = [token asDictionary];
+            callback(@[[NSNull null], profileDict, tokenDict]);
+        } else {
+            callback(@[]);
+        }
         [controller dismissViewControllerAnimated:YES completion:nil];
     };
     void(^dismissBlock)() = ^{
