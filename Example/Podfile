@@ -4,5 +4,8 @@ target 'LockReact' do
   pod 'LockReact', :path => '../'
   pod 'Lock-Facebook'
   pod 'Lock-Twitter'
+  pod 'React'
+  pod 'React/RCTText'
+  pod 'React/RCTImage'
 end
 
