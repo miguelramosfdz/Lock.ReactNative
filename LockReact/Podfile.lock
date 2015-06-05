@@ -84,9 +84,9 @@ PODS:
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/Core
-  - LockReact (0.4.0):
-    - LockReact/Core (= 0.4.0)
-  - LockReact/Core (0.4.0):
+  - LockReact (0.4.1):
+    - LockReact/Core (= 0.4.1)
+  - LockReact/Core (0.4.1):
     - Lock/SMS
     - Lock/TouchID
     - Lock/UI (~> 1.12)
@@ -112,7 +112,7 @@ SPEC CHECKSUMS:
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Lock: 79ac2d131f94f1b5eae89a205059aa4464369427
-  LockReact: 2bf68540d4678d3d5fcd00ad6e7f26689bfca66e
+  LockReact: cdd1c74bcd1f718905c69d027709fc50774941eb
   SimpleKeychain: ed7fcbc2a235ad6919a3d2385ed4b44ab866d874
   Specta: 097be314a75de103703a3bf9a529dc1a398509d7
   TouchIDAuth: f63596baf1c23d85211ab7a3b4bea794d73f3e36
