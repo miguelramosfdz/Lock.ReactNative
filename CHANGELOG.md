@@ -1,5 +1,13 @@
 # Change Log
 
+## [0.4.1](https://github.com/auth0/Lock.ReactNative/tree/0.4.1) (2015-06-05)
+
+[Full Changelog](https://github.com/auth0/Lock.ReactNative/compare/0.4.0...0.4.1)
+
+**Fixed bugs:**
+
+- Cannot show Lock UI [\#6](https://github.com/auth0/Lock.ReactNative/issues/6)
+
 ## [0.4.0](https://github.com/auth0/Lock.ReactNative/tree/0.4.0) (2015-06-05)
 
 [Full Changelog](https://github.com/auth0/Lock.ReactNative/compare/0.3.0...0.4.0)
