@@ -11,6 +11,7 @@
 
 #import "RCTRootView.h"
 #import <Lock/Lock.h>
+#import <LockReact/A0LockReact.h>
 
 @implementation AppDelegate
 
@@ -51,6 +52,6 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  return [[A0IdentityProviderAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
+  return [[[A0LockReact sharedInstance] lock] handleURL:url sourceApplication:sourceApplication];
 }
 @end

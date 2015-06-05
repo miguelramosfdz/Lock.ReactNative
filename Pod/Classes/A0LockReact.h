@@ -21,15 +21,24 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <Lock/A0Lock.h>
 
 typedef void(^A0LockCallback)(NSArray *parameters);
 
 @interface A0LockReact : NSObject
+
+@property (strong, readonly, nonatomic) A0Lock *lock;
 
 - (void)showWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback;
 
 - (void)showSMSWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback;
 
 - (void)showTouchIDWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback;
+
+- (void)configureLockFromBundle;
+
+- (void)configureLockWithClientId:(NSString *)clientId domain:(NSString *)domain;
+
++ (instancetype)sharedInstance;
 
 @end

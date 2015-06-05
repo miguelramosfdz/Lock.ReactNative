@@ -43,8 +43,20 @@
 
 RCT_EXPORT_MODULE(LockReact);
 
+RCT_REMAP_METHOD(init, configureLockWithValues:(NSDictionary *)values) {
+    if (values.count == 2) {
+        [[A0LockReact sharedInstance] configureLockWithClientId:values[@"clientId"] domain:values[@"domain"]];
+    } else {
+        [[A0LockReact sharedInstance] configureLockFromBundle];
+    }
+}
+
 RCT_EXPORT_METHOD(registerNativeAuthentication:(NSArray *)authentications) {
-    A0IdentityProviderAuthenticator *authenticator = [A0IdentityProviderAuthenticator sharedInstance];
+    A0Lock *lock = [[A0LockReact sharedInstance] lock];
+    if (!lock) {
+        return;
+    }
+    NSMutableArray *authenticators = [@[] mutableCopy];
     for (NSDictionary *authentication in authentications) {
         NSString *name = authentication[@"provider"];
 #ifdef FACEBOOK_ENABLED
@@ -53,44 +65,42 @@ RCT_EXPORT_METHOD(registerNativeAuthentication:(NSArray *)authentications) {
             if (permissions.count == 0) {
                 permissions = nil;
             }
-            [authenticator registerAuthenticationProvider:[A0FacebookAuthenticator newAuthenticatorWithPermissions:permissions]];
+            [authenticators addObject:[A0FacebookAuthenticator newAuthenticatorWithPermissions:permissions]];
         }
 #endif
 #ifdef TWITTER_ENABLED
         if ([@"twitter" isEqualToString:name]) {
             NSString *apiKey = authentication[@"api_key"];
             NSString *apiSecret = authentication[@"api_secret"];
-            [authenticator registerAuthenticationProvider:[A0TwitterAuthenticator newAuthenticatorWithKey:apiKey andSecret:apiSecret]];
+            [authenticators addObject:[A0TwitterAuthenticator newAuthenticatorWithKey:apiKey andSecret:apiSecret]];
         }
 #endif
 #ifdef GOOGLE_PLUS_ENABLED
         if ([@"google+" isEqualToString:name]) {
             NSString *clientId = authentication[@"client_id"];
             NSArray *scopes = authentication[@"scopes"];
-            [authenticator registerAuthenticationProvider:[A0GooglePlusAuthenticator newAuthenticatorWithClientId:clientId andScopes:scopes]];
+            [authenticators addObject:[A0GooglePlusAuthenticator newAuthenticatorWithClientId:clientId andScopes:scopes]];
         }
 #endif
+        [lock registerAuthenticators:authenticators];
     }
 }
 
 RCT_EXPORT_METHOD(show:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        A0LockReact *lock = [[A0LockReact alloc] init];
-        [lock showWithOptions:options callback:callback];
+        [[A0LockReact sharedInstance] showWithOptions:options callback:callback];
     });
 }
 
 RCT_EXPORT_METHOD(showSMS:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        A0LockReact *lock = [[A0LockReact alloc] init];
-        [lock showSMSWithOptions:options callback:callback];
+        [[A0LockReact sharedInstance] showSMSWithOptions:options callback:callback];
     });
 }
 
 RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
     dispatch_async(dispatch_get_main_queue(), ^{
-        A0LockReact *lock = [[A0LockReact alloc] init];
-        [lock showTouchIDWithOptions:options callback:callback];
+        [[A0LockReact sharedInstance] showTouchIDWithOptions:options callback:callback];
     });
 }
 
