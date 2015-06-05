@@ -17,12 +17,25 @@ iOS 7+ & React Native
 
 ## Installation
 
+### Using CocoaPods Only
 LockReact is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "LockReact", '~> 0.2'
+pod 'LockReact/NativeModule', '~> 0.3'
 ```
+
+### React Native CLI + CocoaPods
+
+If your already created your application using `react-native init` command, you need to include this Pod instead:
+
+```ruby
+pod 'LockReact', '~> 0.3'
+```
+
+Then copy [LockReactModule.h](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/Modules/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/LockReactModule.m) to your Xcode project, and make sure they added to your app's target.
+
+## Usage
 
 Then in your project's `Info.plist` file add the following entries:
 
@@ -37,31 +50,28 @@ For example:
 
 Also you need to register a Custom URL type, it must have a custom scheme with the following format `a0<Your Client ID>`. For example if your Client ID is `Exe6ccNagokLH7mBmzFejP` then the custom scheme should be `a0Exe6ccNagokLH7mBmzFejP`.
 
-Then you'll need to handle that custom scheme, so first import __Lock__ header in your `AppDelegate.m`
+Then you'll need to handle that custom scheme, so first import `A0LockReact` header in your `AppDelegate.m`
 
 ```objc
-#import <Lock/Lock.h>
+#import <LockReact/A0LockReact.h>
 ```
 
 and override `-application:openURL:sourceApplication:annotation:` method, if you haven't done it before, and add the following line:
 
 ```objc
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  return [[A0IdentityProviderAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
+  return [[[A0LockReact sharedInstance] lock] handleURL:url sourceApplication:sourceApplication];
 }
 ```
 
 > This is required to be able to return back to your application when authenticating with Safari (or native integration with FB or Twitter if used). This call checks the URL and handles all that have the custom scheme defined before.
 
-Then copy [LockReactModule.h](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Example/iOS/Modules/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Example/iOS/Modules/LockReactModule.m) to your Xcode project, and make sure they added to your app's target.
-
 Finally in the file `index.ios.js`, require Lock's module like this:
 
 ```js
 var Lock = require('NativeModules').LockReactModule;
+Lock.init({});
 ```
-
-## Usage
 
 ### Email/Password, Enterprise & Social authentication
 
