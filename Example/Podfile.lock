@@ -23,12 +23,12 @@ PODS:
   - BDBOAuth1Manager (1.5.0):
     - AFNetworking/NSURLConnection (~> 2.5.0)
     - AFNetworking/NSURLSession (~> 2.5.0)
-  - Bolts (1.1.5):
-    - Bolts/AppLinks (= 1.1.5)
-    - Bolts/Tasks (= 1.1.5)
-  - Bolts/AppLinks (1.1.5):
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.1.5)
+  - Bolts/Tasks (1.2.0)
   - CocoaLumberjack (2.0.0):
     - CocoaLumberjack/Default (= 2.0.0)
     - CocoaLumberjack/Extensions (= 2.0.0)
@@ -37,16 +37,16 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
-  - FBSDKCoreKit (4.1.0):
+  - FBSDKCoreKit (4.2.0):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.1.0)
-    - FBSDKCoreKit/no-arc (= 4.1.0)
-  - FBSDKCoreKit/arc (4.1.0):
+    - FBSDKCoreKit/arc (= 4.2.0)
+    - FBSDKCoreKit/no-arc (= 4.2.0)
+  - FBSDKCoreKit/arc (4.2.0):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.1.0):
+  - FBSDKCoreKit/no-arc (4.2.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.1.0):
+  - FBSDKLoginKit (4.2.0):
     - FBSDKCoreKit
   - ISO8601DateFormatter (0.7)
   - libextobjc (0.4.1):
@@ -89,40 +89,51 @@ PODS:
     - FBSDKCoreKit (~> 4.0)
     - FBSDKLoginKit (~> 4.0)
     - Lock/Core (~> 1.11)
-  - Lock-Twitter (1.0.1):
+  - Lock-Twitter (1.0.2):
     - BDBOAuth1Manager (~> 1.5.0)
+    - CocoaLumberjack (~> 2.0)
     - Lock/Core (~> 1.11)
     - PSAlertView (~> 2.0)
     - TWReverseAuth (~> 0.1.0)
-  - Lock/Core (1.12.0):
+  - Lock/Core (1.13.0):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0.0-rc)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
-  - Lock/SMS (1.12.0):
+  - Lock/SMS (1.13.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
-  - Lock/TouchID (1.12.0):
+  - Lock/TouchID (1.13.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/UI
     - SimpleKeychain (~> 0.2)
     - TouchIDAuth (~> 0.1)
-  - Lock/UI (1.12.0):
+  - Lock/UI (1.13.0):
     - CocoaLumberjack (~> 2.0.0-rc)
     - libextobjc (~> 0.4)
     - Lock/Core
-  - LockReact (0.3.0):
+  - LockReact/Core (0.3.0):
     - Lock/SMS
     - Lock/TouchID
     - Lock/UI (~> 1.12)
+  - LockReact/NativeModule (0.3.0):
+    - LockReact/Core
+    - React/Core
   - LUKeychainAccess (1.2.4)
   - NSData+Base64 (1.0.0)
   - OAuthCore (0.0.1):
     - NSData+Base64
   - PSAlertView (2.0.3)
-  - SimpleKeychain (0.3.0)
+  - React (0.4.4):
+    - React/Core (= 0.4.4)
+  - React/Core (0.4.4)
+  - React/RCTImage (0.4.4):
+    - React/Core
+  - React/RCTText (0.4.4):
+    - React/Core
+  - SimpleKeychain (0.4.0)
   - TouchIDAuth (0.1.1):
     - libextobjc (~> 0.4)
     - SimpleKeychain (~> 0.3)
@@ -133,7 +144,10 @@ PODS:
 DEPENDENCIES:
   - Lock-Facebook
   - Lock-Twitter
-  - LockReact (from `../`)
+  - LockReact/NativeModule (from `../`)
+  - React
+  - React/RCTImage
+  - React/RCTText
 
 EXTERNAL SOURCES:
   LockReact:
@@ -142,22 +156,23 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   BDBOAuth1Manager: 2e28773b58f880fb36b5cd3efcf0b1fefbc78a99
-  Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
-  FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
-  FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
+  FBSDKCoreKit: 84b3616a361801f190e43a9909caead7bb6087c7
+  FBSDKLoginKit: 57e37106af12c9e264e473dcb75d7decdbb07fe4
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: ca0a339e418793d13842c4d901c7a5f8b698d87e
+  Lock: 79ac2d131f94f1b5eae89a205059aa4464369427
   Lock-Facebook: 02c315b7d15d6fed20c7a2ea8a5e5e27c072483a
-  Lock-Twitter: 61168e95f6614535167621794cbada2d6606d4c5
-  LockReact: 7f10b77b2b8141e94ead626dee6be6135cc7f979
+  Lock-Twitter: 8168e4c3861f6cc6581d1b8d635f41e29a607cb3
+  LockReact: 10ba2b625326a179507f59468c8b463e2a128c83
   LUKeychainAccess: 6479edb12cf06e11ff3336f796959eedbc58f714
   NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
   PSAlertView: 16d35f5dba549418492cf68a750d4f0dca21f4a2
-  SimpleKeychain: 8de48eb1de10c6403911a6be52e127e5b5d31404
+  React: 17e9803c4b69fd65c58e62db7d6960da5d3c261e
+  SimpleKeychain: ed7fcbc2a235ad6919a3d2385ed4b44ab866d874
   TouchIDAuth: f63596baf1c23d85211ab7a3b4bea794d73f3e36
   TWReverseAuth: d2deef3521fa6bee32eabab67f114c2c4a53d4f5
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2

@@ -27,7 +27,28 @@
 
 @implementation A0LockReact
 
++ (instancetype)sharedInstance {
+    static A0LockReact *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[A0LockReact alloc] init];
+    });
+    return instance;
+}
+
+- (void)configureLockFromBundle {
+    _lock = [A0Lock new];
+}
+
+- (void)configureLockWithClientId:(NSString *)clientId domain:(NSString *)domain {
+    _lock = [A0Lock newLockWithClientId:clientId domain:domain];
+}
+
 - (void)showWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback {
+    if (self.lock) {
+        callback(@[@"Please configure Lock before using it", [NSNull null], [NSNull null]]);
+        return;
+    }
     NSArray *connections = options[@"connections"];
     BOOL isTouchID = [connections containsObject:@"touchid"];
     BOOL isSMS = [connections containsObject:@"sms"];
@@ -92,7 +113,7 @@
 }
 
 - (UIViewController *)buildTouchIDLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
-    A0TouchIDLockViewController *lock = [[A0TouchIDLockViewController alloc] init];
+    A0TouchIDLockViewController *lock = [self.lock newTouchIDViewController];
     lock.closable = [options[@"closable"] boolValue];
     lock.authenticationParameters = [self authenticationParametersFromOptions:options];
     lock.onAuthenticationBlock = authenticationBlock;
@@ -101,7 +122,7 @@
 }
 
 - (UIViewController *)buildSMSLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
-    A0SMSLockViewController *lock = [[A0SMSLockViewController alloc] init];
+    A0SMSLockViewController *lock = [self.lock newSMSViewController];
     NSString *token = options[@"apiToken"];
     lock.auth0APIToken = ^() { return token; };
     lock.closable = [options[@"closable"] boolValue];
@@ -111,7 +132,7 @@
 }
 
 - (UIViewController *)buildLockWithOptions:(NSDictionary *)options authenticationBlock:(A0AuthenticationBlock)authenticationBlock dismissBlock:(void(^)())dismissBlock {
-    A0LockViewController *lock = [[A0LockViewController alloc] init];
+    A0LockViewController *lock = [self.lock newLockViewController];
     lock.closable = [options[@"closable"] boolValue];
     lock.usesEmail = [options[@"usesEmail"] boolValue];
     lock.useWebView = [options[@"useWebView"] boolValue];

@@ -17,9 +17,18 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
+  s.default_subspecs = 'Core'
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.dependency 'Lock/UI', '~> 1.12'
-  s.dependency 'Lock/TouchID'
-  s.dependency 'Lock/SMS'
+  s.subspec 'Core' do |core|
+    core.source_files = 'Pod/Classes/*.{h,m}'
+    core.dependency 'Lock/UI', '~> 1.12'
+    core.dependency 'Lock/TouchID'
+    core.dependency 'Lock/SMS'
+  end
+
+  s.subspec 'NativeModule' do |native|
+    native.source_files = 'Pod/Classes/NativeModule/*.{h,m}'
+    native.dependency 'React/Core'
+    native.dependency 'LockReact/Core'
+  end
 end
