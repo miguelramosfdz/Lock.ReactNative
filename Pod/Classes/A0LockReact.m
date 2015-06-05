@@ -45,7 +45,7 @@
 }
 
 - (void)showWithOptions:(NSDictionary *)options callback:(A0LockCallback)callback {
-    if (self.lock) {
+    if (!self.lock) {
         callback(@[@"Please configure Lock before using it", [NSNull null], [NSNull null]]);
         return;
     }
