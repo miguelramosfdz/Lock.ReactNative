@@ -1,4 +1,4 @@
-// LockReactModule.h
+// A0LockReactModule.h
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -21,8 +21,8 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "RCTBridgeModule.h"
+#import <React/Base/RCTBridgeModule.h>
 
-@interface LockReactModule : NSObject<RCTBridgeModule>
+@interface A0LockReactModule : NSObject<RCTBridgeModule>
 
 @end

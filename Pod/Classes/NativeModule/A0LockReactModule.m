@@ -1,4 +1,4 @@
-// LockReactModule.m
+// A0LockReactModule.m
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,9 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "LockReactModule.h"
-#import "A0LockReact.h"
-#import <Lock/A0IdentityProviderAuthenticator.h>
+#import "A0LockReactModule.h"
+#import <LockReact/A0LockReact.h>
+#import <Lock/Lock.h>
 
 #if __has_include(<Lock-Facebook/A0FacebookAuthenticator.h>)
 #define FACEBOOK_ENABLED 1
@@ -39,7 +39,7 @@
 #import <Lock-GooglePlus/A0GooglePlusAuthenticator.h>
 #endif
 
-@implementation LockReactModule
+@implementation A0LockReactModule
 
 RCT_EXPORT_MODULE(LockReact);
 
