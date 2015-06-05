@@ -1,5 +1,19 @@
 # Change Log
 
+## [0.4.0](https://github.com/auth0/Lock.ReactNative/tree/0.4.0) (2015-06-05)
+
+[Full Changelog](https://github.com/auth0/Lock.ReactNative/compare/0.3.0...0.4.0)
+
+**Closed issues:**
+
+- Bug: -\[\_\_NSPlaceholderArray initWithObjects:count:\]: attempt to insert nil object from objects\[1\] [\#3](https://github.com/auth0/Lock.ReactNative/issues/3)
+
+**Merged pull requests:**
+
+- NativeModule subspec [\#5](https://github.com/auth0/Lock.ReactNative/pull/5) ([hzalaz](https://github.com/hzalaz))
+
+- fixes \#3 [\#4](https://github.com/auth0/Lock.ReactNative/pull/4) ([lukasreichart](https://github.com/lukasreichart))
+
 ## [0.3.0](https://github.com/auth0/Lock.ReactNative/tree/0.3.0) (2015-05-19)
 
 [Full Changelog](https://github.com/auth0/Lock.ReactNative/compare/0.2.0...0.3.0)

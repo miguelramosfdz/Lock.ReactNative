@@ -22,7 +22,7 @@ LockReact is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'LockReact/NativeModule', '~> 0.3'
+pod 'LockReact/NativeModule', '~> 0.4'
 ```
 
 ### React Native CLI + CocoaPods
@@ -30,14 +30,14 @@ pod 'LockReact/NativeModule', '~> 0.3'
 If your already created your application using `react-native init` command, you need to include this Pod instead:
 
 ```ruby
-pod 'LockReact', '~> 0.3'
+pod 'LockReact', '~> 0.4'
 ```
 
-Then copy [LockReactModule.h](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/Modules/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/LockReactModule.m) to your Xcode project, and make sure they added to your app's target.
+Then copy [A0LockReactModule.h](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/A0LockReactModule.h) and [A0LockReactModule.m](https://raw.githubusercontent.com/auth0/Lock.ReactNative/master/Pod/Classes/NativeModule/A0LockReactModule.m) to your Xcode project, and make sure they added to your app's target.
 
 ## Usage
 
-Then in your project's `Info.plist` file add the following entries:
+In your project's `Info.plist` file add the following entries:
 
 * __Auth0ClientId__: The client ID of your application in __Auth0__.
 * __Auth0Domain__: Your account's domain in __Auth0__.
